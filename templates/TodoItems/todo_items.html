@@ -7,7 +7,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">ItemID</th>
+      <th scope="col">Item_ID</th>
       <th scope="col">item_name</th>
       <th scope="col">item_description</th>
     </tr>
@@ -15,15 +15,15 @@
   <tbody>
     {% for item in todo_items %}
       <tr>
-        <td>{{item.item_id}}</td>
+        <td>{{item.item_ID}}</td>
         <td>{{item.item_name}}</td>
         <td>{{item.item_description}}</td>
         <td>
-            <a class="btn btn-outline-secondary" name="SponsorID" id="SponsorID" href="/hauptsponsor/edit?SponsorID={{sponsor.SponsorID}}">✏️</a>
-            <form action="/hauptsponsor/delete" method="post" style="display: inline;">
+            <a class="btn btn-outline-secondary" name="item_ID" id="item_ID" href="/todo_items/edit?item_ID={{item.item_ID}}">✏️</a>
+            <form action="/todo_items/delete" method="post" style="display: inline;">
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-              <input type="hidden" name="SponsorID" id="SponsorID" value="{{sponsor.SponsorID}}">
-              <a class="btn btn-outline-secondary" href="#" onclick="deleteSponsor(this); return false;">🗑️</a>
+              <input type="hidden" name="item_ID" id="item_ID" value="{{item.item_ID}}">
+              <a class="btn btn-outline-secondary" href="#" onclick="deleteItem(this); return false;">🗑️</a>
             </form>
           </td>     
       </tr>

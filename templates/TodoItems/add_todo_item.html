@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<h1>Hauptsponsor hinzufügen</h1>
+<form method="POST" action="/todo_items/add">
+    {{form.csrf_token}}
+    
+    <div class="mb-3">
+        <label for="item_ID" class="form-label">Item_ID</label>
+        {{form.item_ID(class_="form-control",readonly=True)}}
+    </div>
+    
+    <div class="mb-3">
+        <label for="item_name" class="form-label">Item</label>
+        {{form.item_name(class_="form-control")}}
+    </div>
+
+    <div class="mb-3">
+        <label for="item_description" class="form-label">Description</label>
+        {{form.item_description(class_="form-control")}}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{%endblock%}
