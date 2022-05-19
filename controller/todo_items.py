@@ -67,6 +67,7 @@ def edit_todo_items():
             item_to_edit.item_name = edit_item_form.item_name.data
             item_to_edit.item_description = edit_item_form.item_description.data
             
+            
             db.session.commit()
         return redirect("/todo_items")
     else:
@@ -75,7 +76,7 @@ def edit_todo_items():
         edit_item_form.item_description.data = item_to_edit.item_description
         
         return render_template("TodoItems/add_todo_item.html", form = edit_item_form)
-        
+         
 @todo_items_blueprint.route("/todo_items/delete")
 def delete_todo_items():
     pass
